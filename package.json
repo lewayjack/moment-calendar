@@ -1,6 +1,6 @@
 {
   "name": "moment-calendar",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Thomas Schemmer <t.schemmer@gmail.com>",
   "description": "Simple Calendar builder based on Moment.js",
   "homepage": "https://github.com/Sl0wburn/moment-calendar.git",

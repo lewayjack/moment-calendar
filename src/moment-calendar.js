@@ -25,25 +25,25 @@ MCProto = moment.calendar.fn = MomentCalendar.prototype;
 MCProto.today = function(){
     return this.$now;
 };
-MCProto.week = function(fmt){
-    return this.current('week', fmt);
+MCProto.week = function(fmt, asCalView){
+    return this.current('week', fmt, asCalView);
 };
-MCProto.month = function(fmt){
-    return this.current('month',fmt);
+MCProto.month = function(fmt, asCalView){
+    return this.current('month',fmt, asCalView);
 };
 MCProto.year = function(fmt){
-    return this.current('year',fmt);
+    return this.current('year',fmt, asCalView);
 };
 
 
-MCProto.current = function(interval, fmt) {
-    return buildCalendar(this.$now.clone(), interval, fmt);
+MCProto.current = function(interval, fmt, asCalView) {
+    return buildCalendar(this.$now.clone(), interval, fmt, asCalView);
 };
-MCProto.next = function(interval, fmt) {
-    return buildCalendar(this.$now.clone().add(1, intervalCodes[interval]), interval, fmt);
+MCProto.next = function(interval, fmt, asCalView) {
+    return buildCalendar(this.$now.clone().add(1, intervalCodes[interval]), interval, fmt, asCalView);
 };
-MCProto.prev = function(interval, fmt) {
-    return buildCalendar(this.$now.clone().subtract(1, intervalCodes[interval]), interval, fmt);
+MCProto.prev = function(interval, fmt, asCalView) {
+    return buildCalendar(this.$now.clone().subtract(1, intervalCodes[interval]), interval, fmt, asCalView);
 };
 
 MCProto.events = function(interval, incDuration) {
@@ -70,10 +70,24 @@ MCProto.weekdayNames = function(type){
 };
 
 
-function buildCalendar(base, interval, format) {
+function buildCalendar(base, interval, format, asCalView) {
+    
+    if( typeof format === "boolean" ) {
+        asCalView = format;
+        format = null;
+    }
+    if( asCalView === undefined ) {
+        asCalView = true;
+    }
+    
     var cal = [];
     var dtstart = moment(base).startOf(interval);
     var dtend = dtstart.clone().add(1, intervalCodes[interval]);
+    
+    if( asCalView ) {
+        dtstart.startOf('week');
+        dtend.endOf('week');
+    }
     
     while( dtstart.isBefore(dtend) ) {
         cal.push(formatOrNot(dtstart.clone(), format));

@@ -3,6 +3,11 @@ moment-calendar
 
 Simple Calendar builder based on [Moment.js][moment].
 
+Demo
+----
+
+The [demo][demo] contains a small calendar widget with events.
+
 Install
 -------
 
@@ -150,3 +155,4 @@ cal.today().add(1, 'months');
 [moment]: http://momentjs.com/
 [iso8601]: http://en.wikipedia.org/wiki/ISO_8601
 [momentEvents]: https://github.com/Sl0wburn/moment-events
+[demo]: http://embed.plnkr.co/AJ4mTDsRLx14AVcl3zBt/preview
