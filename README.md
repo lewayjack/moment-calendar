@@ -90,11 +90,11 @@ Gets a list of Weekday Names
 
 ``` javascript
 // ["Sunday","Monday", ...]
-var months = cal.weekdayNames();  // equiv. to: cal.weekdayNames(0);
+var weekdays = cal.weekdayNames();  // equiv. to: cal.weekdayNames(0);
 // ["Sun","Mon","Tue", ...]
-var months = cal.weekdayNames('short'); // equiv. to: cal.weekdayNames(1);
+var weekdays = cal.weekdayNames('short'); // equiv. to: cal.weekdayNames(1);
 // ["Su","Mo","Tu", ...]
-var months = cal.weekdayNames('min'); // equiv. to: cal.weekdayNames(2);
+var weekdays = cal.weekdayNames('min'); // equiv. to: cal.weekdayNames(2);
 ```
 
 
