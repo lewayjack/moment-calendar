@@ -1,0 +1,31 @@
+{
+  "name": "moment-calendar",
+  "version": "0.1.0",
+  "author": "Thomas Schemmer <t.schemmer@gmail.com>",
+  "description": "Simple Calendar builder based on Moment.js",
+  "homepage": "https://github.com/Sl0wburn/moment-calendar.git",
+  "keywords": [
+    "moment",
+    "date",
+    "time",
+    "parse",
+    "format",
+    "events",
+    "calendar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sl0wburn/moment-calendar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sl0wburn/moment-calendar/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "moment": "~2.8.4"
+  }
+}
