@@ -22,8 +22,8 @@ function MomentCalendar(now) {
 
 MCProto = moment.calendar.fn = MomentCalendar.prototype;
 
-MCProto.today = function(){
-    return this.$now;
+MCProto.today = function(date){
+    return date && (this.$now = moment(date).startOf('day')) || this.$now;
 };
 MCProto.week = function(fmt, asCalView){
     return this.current('week', fmt, asCalView);
@@ -86,7 +86,7 @@ function buildCalendar(base, interval, format, asCalView) {
     
     if( asCalView ) {
         dtstart.startOf('week');
-        dtend.endOf('week');
+        dtend.subtract(1,'day').endOf('week');
     }
     
     while( dtstart.isBefore(dtend) ) {
